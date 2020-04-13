@@ -2,7 +2,7 @@ const http = require('http');
 const spawn = require('child_process').spawm;
 const createHandler = require('github-webhook-handler');
 const handler = createHandler({
-    path: '/home/ihuzb/runConfig',
+    path: '/',
     secret: 'hzb136877'
 });
 http.createServer((req, res) => {
@@ -18,7 +18,7 @@ handler.on('push', async (event) => {
     console.log('Received a push event for %s to %s',
         event.payload.repository.name,
         event.payload.ref);
-    let txt = await rumCommand('sh', ['./deployed.sh',event.payload.repository.name]);
+    let txt = await rumCommand('sh', ['/home/ihuzb/runConfig/deployed.sh',event.payload.repository.name]);
     console.log(txt)
 })
 rumCommand = (cmd, args) => {
