@@ -1,5 +1,5 @@
 const http = require('http');
-const spawn = require('child_process').spawm;
+const spawn = require('child_process').spawn;
 const createHandler = require('github-webhook-handler');
 const handler = createHandler({
     path: '/',
